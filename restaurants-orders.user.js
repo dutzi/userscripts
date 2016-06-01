@@ -62,7 +62,13 @@ function onDOMSubtreeModified() {
 }
 
 function addEventListener() {
-	document.body.addEventListener('DOMSubtreeModified', onDOMSubtreeModified, false);
+	if (!navigator.userAgent.indexOf('Chrome') > -1 &&
+		navigator.userAgent.indexOf('Safari') > -1) {
+		setInterval(onDOMSubtreeModified, 1000);
+	} else {
+		document.body.addEventListener('DOMSubtreeModified', onDOMSubtreeModified, false);
+	}
+
 }
 
 function init() {
