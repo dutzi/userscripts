@@ -31,7 +31,7 @@ function setHeaderText(text, color) {
 		}
 	`));
 
-	setTimeout(() => {
+	setTimeout(function () {
 		style.appendChild(document.createTextNode(`
 			body:before {
 				opacity: 0.4;
