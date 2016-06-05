@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Restaurants Orders
-// @match http://*.wix.com/*
-// @version        1.0
+// @match http://*/*
+// @version        1.1
 // ==/UserScript==
 
 var numIframesReplaced = 0;
@@ -66,7 +66,9 @@ function init() {
 	setHeaderText('restaurants-orders userscript running');
 }
 
-init();
+if (document.querySelector('meta[http-equiv="X-Wix-Meta-Site-Id"]')) {
+    init();
+}
 
 // unsafeWindow.__restaurants_orders_userscript = {
 // 	disable() {
