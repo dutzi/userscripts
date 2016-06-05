@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name           Restaurants Orders
 // @match http://*/*
-// @version        1.1
+// @version        1.2
 // ==/UserScript==
 
 var numIframesReplaced = 0;
 
-function setHeaderText(text, color = 'black') {
+function setHeaderText(text, color) {
+	color = color || 'black';
+
 	var prevStyle = document.querySelector('style[data-userscript-id=restaurants-orders]');
 	if (prevStyle) {
 		prevStyle.remove();
@@ -29,7 +31,7 @@ function setHeaderText(text, color = 'black') {
 		}
 	`));
 
-	setTimeout(() => {
+	setTimeout(function () {
 		style.appendChild(document.createTextNode(`
 			body:before {
 				opacity: 0.4;
@@ -43,7 +45,9 @@ function setHeaderText(text, color = 'black') {
 
 function onDOMSubtreeModified() {
 	var iframe = [].slice.call(document.querySelectorAll('iframe'))
-		.find(iframe => iframe.src.startsWith('https://restaurants.wix.com'));
+		.find(function (iframe) {
+			return iframe.src.startsWith('https://restaurants.wix.com');
+		});
 
 	if (iframe) {
 		iframe.src = iframe.src.replace('https://restaurants.wix.com',
