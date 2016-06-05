@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name           Restaurants Orders
 // @match http://*/*
-// @version        1.2
+// @version        1.3
 // ==/UserScript==
 
 var numIframesReplaced = 0;
+var isBeta = window.localStorage.getItem('isBeta') === 'true';
 
-function setHeaderText(text, color) {
+function setLogMessage(text, color) {
 	color = color || 'black';
 
 	var prevStyle = document.querySelector('style[data-userscript-id=restaurants-orders]');
@@ -43,6 +44,10 @@ function setHeaderText(text, color) {
 	document.head.appendChild(style);
 }
 
+function updateLogMessage() {
+	setLogMessage(`WixRestaurants userscript (iframes: ${numIframesReplaced}, isBeta: ${isBeta})`);
+}
+
 function onDOMSubtreeModified() {
 	var iframe = [].slice.call(document.querySelectorAll('iframe'))
 		.find(function (iframe) {
@@ -57,7 +62,9 @@ function onDOMSubtreeModified() {
 
 		console.log('%crestaurants-order userscript updated iframe location',
 			'background: #222; color: yellow; padding: 0px 3px');
-		setHeaderText(`restaurants-orders userscript running (×${numIframesReplaced})`);
+
+		updateLogMessage();
+		updateLogMessage();
 	}
 }
 
@@ -67,7 +74,7 @@ function addEventListener() {
 
 function init() {
 	addEventListener();
-	setHeaderText('restaurants-orders userscript running');
+	updateLogMessage();
 }
 
 if (document.querySelector('meta[http-equiv="X-Wix-Meta-Site-Id"]')) {
@@ -96,7 +103,7 @@ if (document.querySelector('meta[http-equiv="X-Wix-Meta-Site-Id"]')) {
 // 		setHeaderText('restaurants-orders userscript disabled :(', 'grey');
 // 	} else {
 // 		addEventListener();
-// 		setHeaderText('restaurants-orders userscript running');
+// 		setHeaderText('WixRestaurants userscript');
 // 	}
 // }
 
