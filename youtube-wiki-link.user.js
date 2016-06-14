@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Youtube wiki link
 // @match https://*.youtube.com/*
-// @version        1.0
+// @version        1.1
 // ==/UserScript==
 
 setInterval(() => {
@@ -30,6 +30,6 @@ function addWikiLink() {
 
 	var wikiLink = document.createElement('span');
 	wikiLink.classList.add('wikilink')
-	wikiLink.innerHTML = `(<a target='_blank' style='color: #167ac6' href='http://www.google.com/search?q=${title.replace(/ /g, '+')}&btnI'>wiki</a>)`;
+	wikiLink.innerHTML = `(<a target='_blank' style='color: #167ac6' href='http://www.google.com/search?q=${title.replace(/ /g, '+').replace(/'/g, "")}&btnI='>wiki</a>)`;
 	document.querySelector('.watch-title').append(wikiLink)
 }
