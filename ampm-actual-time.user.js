@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           AM/PM -> Actual time
 // @match          https://www.google.com/flights/*
-// @version        0.2
+// @version        0.3
 // ==/UserScript==
 
 (function() {
