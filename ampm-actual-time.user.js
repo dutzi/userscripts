@@ -1,7 +1,6 @@
 // ==UserScript==
 // @name           AM/PM -> Actual time
 // @match          https://www.google.com/flights/*
-// @match          https://www.hipmunk.com/*
 // @version        0.2
 // ==/UserScript==
 
