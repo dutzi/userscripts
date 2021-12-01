@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        New script - wolt.com
+// @name        Wolt Open Notifier - wolt.com
 // @namespace   Violentmonkey Scripts
 // @match       https://wolt.com/*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      -
 // @description 12/1/2021, 9:20:55 PM
 // ==/UserScript==
