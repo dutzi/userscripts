@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        Wolt Open Notifier - wolt.com
+// @name        Wolt Open Notifier
 // @namespace   Violentmonkey Scripts
 // @match       https://wolt.com/*
 // @grant       none
-// @version     1.2
+// @version     1.3
 // @author      -
 // @description This will notify you when a restaurant is open for delivery.
 // ==/UserScript==
