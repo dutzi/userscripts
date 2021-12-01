@@ -3,9 +3,9 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://wolt.com/*
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      -
-// @description 12/1/2021, 9:20:55 PM
+// @description This will notify you when a restaurant is open for delivery.
 // ==/UserScript==
 
 async function checkIfOpen() {
